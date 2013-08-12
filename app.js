@@ -51,6 +51,11 @@ twitter.stream('statuses/filter', params, function(stream) {
     text += 'https://twitter.com/' + data.user.screen_name + '/status/' + data.id_str;
     console.log(text);
 
+    if (data.retweeted_status) {
+      console.log('Skip retweet');
+      return;
+    }
+
     var message = {
       body: text
     };
