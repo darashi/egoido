@@ -1,0 +1,15 @@
+{
+  "name": "egoido",
+  "version": "0.0.0",
+  "description": "Ego-search tool for idobata.io",
+  "main": "app.js",
+  "scripts": {
+  },
+  "author": "Yoji Shidara",
+  "license": "BSD",
+  "dependencies": {
+    "ntwitter": "",
+    "request": "",
+    "lodash": ""
+  }
+}
