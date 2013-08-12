@@ -68,4 +68,8 @@ twitter.stream('statuses/filter', params, function(stream) {
       }
     });
   });
+
+  stream.on('error', function(error) {
+    throw error;
+  });
 });
