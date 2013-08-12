@@ -71,7 +71,7 @@ twitter.stream('statuses/filter', params, function(stream) {
     });
   });
 
-  stream.on('error', function(error) {
-    throw error;
+  stream.on('error', function(error, data) {
+    throw error + ':' + data;
   });
 });
