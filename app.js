@@ -55,7 +55,9 @@ twitter.stream('statuses/filter', params, function(stream) {
       body: text
     };
 
-    _(hookConfigurations).forEach(function(query, hookUrl) {
+    _(hookConfigurations).forEach(function(hook) {
+      var hookUrl = hook[0];
+      var query = hook[1];
       var matched = false;
       if (!query) {
         matched = true;
