@@ -31,12 +31,18 @@ var params = {
 };
 
 var hookConfigurations = [];
-_(env).select(function(value, key) {
-  return key.match(/^HOOK_/);
-}).map(function(value) {
-  var components = value.split(/,/);
-  var url = components[0];
-  var query = components[1];
+_(env).forEach(function(value, key) {
+  if (!key.match(/^HOOK_/)) {
+    return;
+  }
+
+  var matched = value.match(/^(.+?)(?:#(.+))?$/);
+  if (!matched) {
+    throw('Error in hook configuration ' + key);
+  }
+
+  var url = matched[1];
+  var query = matched[2];
 
   hookConfigurations.push([url, query]);
 });
