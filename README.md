@@ -14,10 +14,7 @@ Create heroku app:
 
 Configure credentials:
 
-    % heroku config:add TWITTER_CONSUMER_KEY=xxxxxxxxxxxxxxxxxxxxx
-    % heroku config:add TWITTER_CONSUMER_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    % heroku config:add TWITTER_ACCESS_TOKEN_KEY=000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    % heroku config:add TWITTER_ACCESS_TOKEN_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    % heroku config:add TWITTER_AUTH=[consumer_key]:[consumer_secret]:[access_token_key]:[access_token_secret]
 
 Configure tracking terms (comma separated, passed to twitter):
 

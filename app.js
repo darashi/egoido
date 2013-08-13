@@ -3,11 +3,12 @@ var request = require('request');
 var _ = require('lodash');
 
 var env = process.env;
+var parts = env.TWITTER_AUTH.split(':');
 var config = {
-  consumer_key: env.TWITTER_CONSUMER_KEY,
-  consumer_secret: env.TWITTER_CONSUMER_SECRET,
-  access_token_key: env.TWITTER_ACCESS_TOKEN_KEY,
-  access_token_secret: env.TWITTER_ACCESS_TOKEN_SECRET
+  consumer_key: parts[0],
+  consumer_secret: parts[1],
+  access_token_key: parts[2],
+  access_token_secret: parts[3]
 };
 twitter = new ntwitter(config);
 
