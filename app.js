@@ -64,7 +64,7 @@ twitter.stream('statuses/filter', params, function(stream) {
     }
 
     var message = {
-      body: text
+      source: text
     };
 
     _(hookConfigurations).forEach(function(hook) {
