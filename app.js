@@ -23,14 +23,18 @@ function notify(url, message, callback) {
   );
 }
 
-if (!env.TRACK) {
-  throw 'Environment variable TRACK must be set';
+var params = {};
+if (!(env.TRACK || env.FOLLOW)) {
+  throw 'At least one of environment variables TRACK or FOLLOW must be set';
 }
-console.log('TRACK: %s', env.TRACK);
+if (env.TRACK) {
+  params.track = env.TRACK;
+}
+if (env.FOLLOW) {
+  params.follow = env.FOLLOW;
+}
+console.log('Params for statuses/filter: %j', params);
 
-var params = {
-  track: env.TRACK
-};
 
 var hookConfigurations = [];
 _(env).forEach(function(value, key) {

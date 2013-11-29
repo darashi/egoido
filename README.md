@@ -20,6 +20,10 @@ Configure tracking terms (comma separated, passed to twitter):
 
     % heroku config:add TRACK=idobata,idobataio,idobata.io
 
+Configure following user id (comma separated, passed to twitter):
+
+    % heroku config:add FOLLOW=0,0,0
+
 Create generic hook on idobata.io and set it:
 
     % heroku config:add HOOK_[your-arbitrary-identifier]=https://idobata.io/hook/00000000-0000-0000-00000000000000000#[regexp to notify]
