@@ -42,17 +42,20 @@ _(env).forEach(function(value, key) {
     return;
   }
 
-  var matched = value.match(/^(.+?)(?:#(.+))?$/);
+  var matched = value.match(/^(.+?)(?:@([0-9,]+))?(?:#(.+))?$/);
   if (!matched) {
     throw('Error in hook configuration ' + key);
   }
 
-  var url = matched[1];
-  var query = matched[2];
+  var user_ids = [];
+  if (matched[2]) {
+    user_ids = matched[2].split(/,/);
+  }
 
   hookConfigurations.push({
-    url: url,
-    query: query
+    url: matched[1],
+    user_ids: user_ids,
+    query: matched[3]
   });
 });
 
@@ -74,7 +77,12 @@ twitter.stream('statuses/filter', params, function(stream) {
         matched = true;
       } else {
         var regexp = new RegExp(hook.query, 'i');
-        matched = regexp.test(data.text);
+        if (regexp.test(data.text)) {
+          matched = true;
+        }
+        if (hook.user_ids.indexOf(data.user.id_str) >= 0) {
+          matched = true;
+        }
       }
       if (matched) {
         notify(hook.url, message);
