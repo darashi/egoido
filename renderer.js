@@ -3,9 +3,14 @@ var fs = require('fs');
 
 var renderer = jade.compile(fs.readFileSync(__dirname + '/template.jade'));
 
-module.exports.renderTweet = function(data) {
+module.exports.renderTweet = function(tweet) {
+  var screen_name = tweet.user.screen_name;
   var locals = {
-    tweet: data
+    tweet: tweet,
+    url: {
+      tweet: 'https://twitter.com/' + screen_name + '/status/' + tweet.id_str,
+      user: 'https://twitter.com/' + screen_name
+    }
   };
   var html = renderer(locals);
 

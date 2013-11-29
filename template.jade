@@ -1,3 +1,10 @@
 img(width=16, height=16, src=tweet.user.profile_image_url_https)
-b= tweet.user.name
+&nbsp;
+b
+  a(href=url.user)= tweet.user.name
+&nbsp;
+a(href=url.user)= '@' + tweet.user.screen_name
+br
 != tweet.text
+br
+a(href=url.tweet)= tweet.created_at
