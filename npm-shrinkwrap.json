@@ -4,7 +4,7 @@
   "dependencies": {
     "ntwitter": {
       "version": "0.5.0",
-      "from": "ntwitter@",
+      "from": "ntwitter@0.5.0",
       "dependencies": {
         "oauth": {
           "version": "0.9.10",
@@ -15,15 +15,14 @@
           "from": "cookies@0.1.x"
         },
         "keygrip": {
-          "version": "0.2.3",
+          "version": "0.2.4",
           "from": "keygrip@0.2.x"
         }
       }
     },
     "request": {
-      "version": "2.26.0",
-      "from": "request@",
-      "resolved": "https://registry.npmjs.org/request/-/request-2.26.0.tgz",
+      "version": "2.27.0",
+      "from": "request@2.27.0",
       "dependencies": {
         "qs": {
           "version": "0.6.5",
@@ -94,15 +93,15 @@
           "from": "cookie-jar@~0.3.0"
         },
         "node-uuid": {
-          "version": "1.4.0",
+          "version": "1.4.1",
           "from": "node-uuid@~1.4.0"
         },
         "mime": {
-          "version": "1.2.10",
+          "version": "1.2.11",
           "from": "mime@~1.2.9"
         },
         "form-data": {
-          "version": "0.1.0",
+          "version": "0.1.2",
           "from": "form-data@~0.1.0",
           "dependencies": {
             "combined-stream": {
@@ -124,8 +123,8 @@
       }
     },
     "lodash": {
-      "version": "1.3.1",
-      "from": "lodash@"
+      "version": "2.4.0",
+      "from": "lodash@2.4.0"
     }
   }
 }
