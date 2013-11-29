@@ -1,12 +1,17 @@
+var jade = require('jade');
+var fs = require('fs');
+
+var renderer = jade.compile(fs.readFileSync(__dirname + '/template.jade'));
+
 module.exports.renderTweet = function(data) {
-  var text = '';
-  text += '@' + data.user.screen_name + ' (' + data.user.name + ') tweeted:\n';
-  text += data.text + '\n';
-  text += 'https://twitter.com/' + data.user.screen_name + '/status/' + data.id_str;
-  console.log(text);
+  var locals = {
+    tweet: data
+  };
+  var html = renderer(locals);
 
   var message = {
-    source: text
+    source: html,
+    format: 'html'
   };
   return message;
 }

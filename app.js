@@ -59,6 +59,7 @@ twitter.stream('statuses/filter', params, function(stream) {
       return;
     }
     var message = renderer.renderTweet(data);
+    console.log(message);
 
     _(hookConfigurations).forEach(function(hook) {
       var hookUrl = hook[0];
