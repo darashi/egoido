@@ -50,7 +50,10 @@ _(env).forEach(function(value, key) {
   var url = matched[1];
   var query = matched[2];
 
-  hookConfigurations.push([url, query]);
+  hookConfigurations.push({
+    url: url,
+    query: query
+  });
 });
 
 console.log('Hook Configurations: %j', hookConfigurations);
@@ -66,17 +69,15 @@ twitter.stream('statuses/filter', params, function(stream) {
     console.log(message);
 
     _(hookConfigurations).forEach(function(hook) {
-      var hookUrl = hook[0];
-      var query = hook[1];
       var matched = false;
-      if (!query) {
+      if (!hook.query) {
         matched = true;
       } else {
-        var regexp = new RegExp(query, 'i');
+        var regexp = new RegExp(hook.query, 'i');
         matched = regexp.test(data.text);
       }
       if (matched) {
-        notify(hookUrl, message);
+        notify(hook.url, message);
       }
     });
   });
