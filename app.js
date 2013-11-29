@@ -1,6 +1,7 @@
 var ntwitter = require('ntwitter');
 var request = require('request');
 var _ = require('lodash');
+var renderer = require('./renderer');
 
 var env = process.env;
 var parts = env.TWITTER_AUTH.split(':');
@@ -52,20 +53,12 @@ console.log('Hook Configurations: %j', hookConfigurations);
 
 twitter.stream('statuses/filter', params, function(stream) {
   stream.on('data', function(data) {
-    var text = '';
-    text += '@' + data.user.screen_name + ' (' + data.user.name + ') tweeted:\n';
-    text += data.text + '\n';
-    text += 'https://twitter.com/' + data.user.screen_name + '/status/' + data.id_str;
-    console.log(text);
 
     if (data.retweeted_status) {
       console.log('Skip retweet');
       return;
     }
-
-    var message = {
-      source: text
-    };
+    var message = renderer.renderTweet(data);
 
     _(hookConfigurations).forEach(function(hook) {
       var hookUrl = hook[0];
