@@ -306,6 +306,10 @@
           }
         }
       }
+    },
+    "twitter-text": {
+      "version": "1.7.0",
+      "from": "twitter-text@1.7.0"
     }
   }
 }
