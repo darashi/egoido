@@ -1,6 +1,7 @@
 var jade = require('jade');
 var fs = require('fs');
 var twitter = require('twitter-text');
+var moment = require('moment');
 
 var renderer = jade.compile(fs.readFileSync(__dirname + '/template.jade'));
 
@@ -24,7 +25,8 @@ module.exports.renderTweet = function(tweet) {
       tweet: 'https://twitter.com/' + screen_name + '/status/' + tweet.id_str,
       user: 'https://twitter.com/' + screen_name
     },
-    html: autolink(tweet)
+    html: autolink(tweet),
+    time: moment(tweet.created_at)
   };
   var html = renderer(locals);
 

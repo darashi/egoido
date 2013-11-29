@@ -310,6 +310,10 @@
     "twitter-text": {
       "version": "1.7.0",
       "from": "twitter-text@1.7.0"
+    },
+    "moment": {
+      "version": "2.4.0",
+      "from": "moment@2.4.0"
     }
   }
 }
