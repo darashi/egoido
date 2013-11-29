@@ -11,7 +11,7 @@ var config = {
   access_token_key: parts[2],
   access_token_secret: parts[3]
 };
-twitter = new ntwitter(config);
+var twitter = new ntwitter(config);
 
 function notify(url, message, callback) {
   request.post(
