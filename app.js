@@ -73,7 +73,7 @@ twitter.stream('statuses/filter', params, function(stream) {
 
     _(hookConfigurations).forEach(function(hook) {
       var matched = false;
-      if (!hook.query) {
+      if (!hook.query && hook.user_ids.length == 0) {
         matched = true;
       } else {
         var regexp = new RegExp(hook.query, 'i');
