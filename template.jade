@@ -1,3 +1,5 @@
+- image_size = 'small'
+
 img(width=16, height=16, src=tweet.user.profile_image_url_https)
 &nbsp;
 b
@@ -8,3 +10,12 @@ br
 != html
 br
 a(href=url.tweet)= time.format('DD MMM YYYY')
+
+if(tweet.entities.media && tweet.entities.media.length > 0)
+  br
+  each media in tweet.entities.media
+    if media.type === 'photo'
+      - size = media.sizes[image_size]
+      a(href=media.expanded_url)
+        img(width=size.w, height=size.h, src=media.media_url_https + ':' + image_size)
+      &nbsp;
