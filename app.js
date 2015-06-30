@@ -69,7 +69,7 @@ twitter.stream('statuses/filter', params, function(stream) {
     }
 
     var message = {
-      source: 'https://twitter.com/' + data.screen_name + '/status/' + data.id_str,
+      source: 'https://twitter.com/' + data.user.screen_name + '/status/' + data.id_str,
       format: 'plain'
     };
 
