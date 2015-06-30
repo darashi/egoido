@@ -1,7 +1,6 @@
 var ntwitter = require('ntwitter');
 var request = require('request');
 var _ = require('lodash');
-var renderer = require('./renderer');
 
 var env = process.env;
 var parts = env.TWITTER_AUTH.split(':');
@@ -68,7 +67,12 @@ twitter.stream('statuses/filter', params, function(stream) {
       console.log('Skip retweet');
       return;
     }
-    var message = renderer.renderTweet(data);
+
+    var message = {
+      source: 'https://twitter.com/' + data.screen_name + '/status/' + data.id_str,
+      format: 'plain'
+    };
+
     console.log(message);
 
     _(hookConfigurations).forEach(function(hook) {

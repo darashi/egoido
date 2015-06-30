@@ -3,17 +3,13 @@
   "version": "0.0.0",
   "description": "Ego-search tool for idobata.io",
   "main": "app.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "Yoji Shidara",
   "license": "BSD",
   "dependencies": {
     "ntwitter": "",
     "request": "",
-    "lodash": "",
-    "jade": "",
-    "twitter-text": "",
-    "moment": ""
+    "lodash": ""
   },
   "engines": {
     "node": "0.12.x"
