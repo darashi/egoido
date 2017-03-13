@@ -42,7 +42,7 @@ If you want to combine `TRACK` and `FOLLOW`, specify `@[comma separated user ids
 
 Tweets matched (`TRACK` OR `FOLLOW`) AND (`comma separated use ids` OR `regexp to notify`) will be notified.
 
-You can have multiple hooks by using different hook identifier `[your-arbitary-identifier]` part. This is useful for tracking multiple terms and dispatch to different rooms.
+You can have multiple hooks by using different hook identifier `[your-arbitrary-identifier]` part. This is useful for tracking multiple terms and dispatch to different rooms.
 
 You can omit `#[regexp to notify]` and `@[comma separated user ids to notify]`. If do so, every tweet matched with `TRACK` parameter or `FOLLOW` parameter will be sent to the room.
 
